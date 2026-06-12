@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "stateful-tmux-harness": {
+      "type": "local",
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu-24.04",
+        "--",
+        "bash",
+        "-c",
+        "UV_PROJECT_ENVIRONMENT=\"$HOME/.venvs/tmux-harness\" exec \"$HOME/.local/bin/uv\" run --directory /mnt/c/Users/troll/Python/tmux-harness python server.py"
+      ],
+      "tools": ["*"]
+    }
+  }
+}
