@@ -19,9 +19,9 @@ import time
 
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Stateful-Tmux-Harness")
+mcp = FastMCP("Tmux")
 
-SESSION_NAME = os.environ.get("TMUX_HARNESS_SESSION", "local_agent_workspace")
+SESSION_NAME = os.environ.get("TMUX", "local_agent_workspace")
 HISTORY_LIMIT = "20000"
 PANE_WIDTH = "220"
 PANE_HEIGHT = "50"

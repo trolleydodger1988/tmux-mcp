@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "stateful-tmux-harness": {
+    "tmux": {
       "command": "wsl.exe",
       "args": [
         "-d",

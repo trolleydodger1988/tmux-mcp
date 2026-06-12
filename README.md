@@ -1,6 +1,6 @@
 # Project BareMetal-Tmux
 
-A decoupled, stateful local MCP (Model Context Protocol) orchestration harness.
+A decoupled, stateful, interactive MCP (Model Context Protocol) Tmux tool.
 It exposes a persistent host `tmux` session to MCP clients — GitHub Copilot CLI,
 ForgeCode, VS Code — over the stdio transport. No containers, no network: raw
 JSON-RPC text streams straight into bare-metal shell execution.
@@ -69,7 +69,7 @@ Run the smoke test (28 checks: ANSI stripping, SR-01 guardrails, live tmux
 round-trips against a throwaway session):
 
 ```bash
-TMUX_HARNESS_SESSION=harness_smoke_test uv run python tests/smoke_test.py
+TMUX=harness_smoke_test uv run python tests/smoke_test.py
 ```
 
 ## Client Integration
@@ -105,7 +105,7 @@ Add the same server block from [.mcp.json](.mcp.json) to `.vscode/mcp.json`.
 
 | Variable | Default | Effect |
 |---|---|---|
-| `TMUX_HARNESS_SESSION` | `local_agent_workspace` | Name of the persistent tmux session |
+| `TMUX` | `local_agent_workspace` | Name of the persistent tmux session |
 | `UV_PROJECT_ENVIRONMENT` | `.venv` in project | Venv location (keep on ext4 under WSL) |
 
 ## Project Layout

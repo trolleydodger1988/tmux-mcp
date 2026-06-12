@@ -1,9 +1,9 @@
-"""Smoke test for the Stateful-Tmux-Harness MCP server.
+"""Smoke test for the Tmux-Harness MCP server.
 
 Runs against a throwaway tmux session (harness_smoke_test) so the real
 workspace session is untouched. Execute inside WSL:
 
-    TMUX_HARNESS_SESSION=harness_smoke_test uv run python tests/smoke_test.py
+    TMUX=harness_smoke_test uv run python tests/smoke_test.py
 """
 
 import os
@@ -11,7 +11,7 @@ import subprocess
 import sys
 import time
 
-os.environ.setdefault("TMUX_HARNESS_SESSION", "harness_smoke_test")
+os.environ.setdefault("TMUX", "harness_smoke_test")
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
