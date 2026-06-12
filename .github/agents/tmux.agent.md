@@ -1,10 +1,10 @@
 ---
 name: tmux
-description: "Stateful tmux operator for Project BareMetal-Tmux. Use when: dispatching shell commands into the persistent tmux workspace session, reading terminal scrollback output, breaking stuck or blocking processes with SIGINT, or running long-lived jobs (servers, watchers, REPLs, test loops) that must survive agent restarts and context compaction. Operates exclusively through the stateful-tmux-harness MCP tools — no direct shell, file, or web access."
+description: "Stateful tmux operator for Project BareMetal-Tmux. Use when: dispatching shell commands into the persistent tmux workspace session, reading terminal scrollback output, breaking stuck or blocking processes with SIGINT, or running long-lived jobs (servers, watchers, REPLs, test loops) that must survive agent restarts and context compaction. Operates exclusively through the tmux MCP tools — no direct shell, file, or web access."
 target: github-copilot
-tools: [read/getNotebookSummary, read/problems, read/readFile, read/viewImage, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, stateful-tmux-harness/execute_command, stateful-tmux-harness/send_control_signal, stateful-tmux-harness/read_terminal_buffer]
+tools: [read/getNotebookSummary, read/problems, read/readFile, read/viewImage, read/readNotebookCellOutput, read/terminalSelection, read/terminalLastCommand, read/getTaskOutput, edit/createDirectory, edit/createFile, edit/createJupyterNotebook, edit/editFiles, edit/editNotebook, edit/rename, tmux/execute_command, tmux/send_control_signal, tmux/read_terminal_buffer]
 mcp-servers:
-  stateful-tmux-harness:
+  tmux:
     type: 'local'
     command: 'wsl.exe'
     args:
@@ -24,7 +24,7 @@ not a fresh shell.
 
 ## Constraints
 
-- ONLY interact with the host through `stateful-tmux-harness` tools. You have no
+- ONLY interact with the host through `tmux` tools. You have no
   file editor, no direct shell, and no web access — do not attempt to use them.
 - DO NOT attempt to bypass SR-01 safety rejections (recursive root removals,
   `mkfs`, raw `dd` to block devices, `--no-preserve-root`, fork bombs). If a
